@@ -1,0 +1,2260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mahmoud Ahmed | .NET Full-Stack Developer</title>
+
+    <meta
+        name="description"
+        content="Mahmoud Ahmed is a Junior .NET Full-Stack Developer building reliable web applications with C#, ASP.NET Core, SQL, JavaScript and React."
+    >
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg: #080d18;
+            --bg-light: #0d1424;
+            --card: rgba(18, 28, 48, 0.72);
+            --border: rgba(148, 163, 184, 0.12);
+
+            --text: #f8fafc;
+            --muted: #94a3b8;
+
+            --primary: #38bdf8;
+            --primary-dark: #0ea5e9;
+
+            --success: #22c55e;
+
+            --radius: 18px;
+            --max-width: 1150px;
+        }
+
+        body {
+            font-family:
+                Inter,
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 80% 10%,
+                    rgba(14, 165, 233, 0.13),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 10% 80%,
+                    rgba(56, 189, 248, 0.06),
+                    transparent 25%
+                ),
+                var(--bg);
+
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: min(92%, var(--max-width));
+            margin: auto;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(8, 13, 24, 0.78);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            width: min(92%, var(--max-width));
+            height: 75px;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        #home {
+            min-height: 100vh;
+            width: min(92%, var(--max-width));
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            align-items: center;
+            gap: 70px;
+
+            padding-top: 100px;
+        }
+
+        .home-text {
+            animation: fadeUp 0.9s ease forwards;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            padding: 8px 14px;
+            margin-bottom: 22px;
+
+            background: rgba(34, 197, 94, 0.08);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+
+            color: #86efac;
+            border-radius: 999px;
+
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 0 5px rgba(34, 197, 94, 0.08);
+        }
+
+        .home-text h4 {
+            color: var(--muted);
+            font-size: 18px;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .home-text h1 {
+            font-size: clamp(48px, 7vw, 78px);
+            line-height: 1;
+            letter-spacing: -3px;
+            margin-bottom: 18px;
+        }
+
+        .home-text h1 span {
+            color: var(--primary);
+        }
+
+        .home-text h2 {
+            font-size: clamp(20px, 3vw, 28px);
+            margin-bottom: 22px;
+            color: #dbeafe;
+            font-weight: 650;
+        }
+
+        .home-text h2 span {
+            color: var(--primary);
+        }
+
+        .home-text p {
+            max-width: 650px;
+            color: var(--muted);
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .home-text strong {
+            color: #e2e8f0;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 13px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 12px 21px;
+            border-radius: 11px;
+
+            background: var(--primary);
+            color: #03111c;
+
+            font-size: 14px;
+            font-weight: 800;
+
+            border: 1px solid var(--primary);
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background: #7dd3fc;
+            box-shadow: 0 12px 30px rgba(56, 189, 248, 0.16);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border-color: var(--border);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: rgba(56, 189, 248, 0.05);
+        }
+
+
+        /* =========================
+           PROFILE
+        ========================== */
+
+        .profile-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .profile-container::before {
+            content: "";
+            position: absolute;
+
+            width: 320px;
+            height: 320px;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(56, 189, 248, 0.18),
+                    transparent 60%
+                );
+
+            filter: blur(10px);
+        }
+
+        .profile-container::after {
+            content: "";
+            position: absolute;
+
+            width: 310px;
+            height: 310px;
+
+            border: 1px solid rgba(56, 189, 248, 0.18);
+            border-radius: 50%;
+
+            animation: rotate 12s linear infinite;
+        }
+
+        .profile {
+            position: relative;
+            z-index: 2;
+
+            width: 280px;
+            height: 280px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border: 7px solid rgba(56, 189, 248, 0.15);
+
+            box-shadow:
+                0 0 60px rgba(56, 189, 248, 0.13);
+
+            background: #111827;
+        }
+
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================== */
+
+        section {
+            width: min(92%, var(--max-width));
+            margin: auto;
+            padding: 105px 0;
+        }
+
+        .section-heading {
+            margin-bottom: 45px;
+        }
+
+        .section-label {
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 7px;
+        }
+
+        .section-title {
+            font-size: clamp(30px, 4vw, 43px);
+            letter-spacing: -1.5px;
+        }
+
+        .section-title span {
+            color: var(--primary);
+        }
+
+        .section-description {
+            max-width: 650px;
+            color: var(--muted);
+            margin-top: 10px;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================== */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .about-box,
+        .info-card {
+            padding: 30px;
+            border-radius: var(--radius);
+
+            background: var(--card);
+            border: 1px solid var(--border);
+
+            backdrop-filter: blur(12px);
+        }
+
+        .about-box p {
+            color: var(--muted);
+        }
+
+        .about-box strong {
+            color: var(--text);
+        }
+
+        .quick-info {
+            display: grid;
+            gap: 14px;
+        }
+
+        .info-item {
+            padding: 17px;
+            border-radius: 13px;
+
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid var(--border);
+        }
+
+        .info-item small {
+            display: block;
+            color: var(--muted);
+            font-size: 12px;
+            margin-bottom: 2px;
+        }
+
+        .info-item strong {
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           SKILLS
+        ========================== */
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .skill {
+            padding: 23px;
+
+            border-radius: 16px;
+            background: var(--card);
+            border: 1px solid var(--border);
+
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-6px);
+            border-color: rgba(56, 189, 248, 0.35);
+            background: rgba(18, 32, 53, 0.9);
+        }
+
+        .skill-icon {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 17px;
+
+            border-radius: 10px;
+
+            color: var(--primary);
+            background: rgba(56, 189, 248, 0.08);
+
+            font-weight: 900;
+        }
+
+        .skill h3 {
+            font-size: 17px;
+            margin-bottom: 3px;
+        }
+
+        .skill p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           SERVICES
+        ========================== */
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .service {
+            padding: 30px;
+
+            border-radius: var(--radius);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(30, 41, 59, 0.75),
+                    rgba(15, 23, 42, 0.75)
+                );
+
+            border: 1px solid var(--border);
+
+            transition: 0.3s;
+        }
+
+        .service:hover {
+            transform: translateY(-7px);
+            border-color: rgba(56, 189, 248, 0.35);
+        }
+
+        .service-number {
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 22px;
+        }
+
+        .service h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .service p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================== */
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .project {
+            overflow: hidden;
+
+            border-radius: var(--radius);
+
+            background: var(--card);
+            border: 1px solid var(--border);
+
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-7px);
+            border-color: rgba(56, 189, 248, 0.35);
+        }
+
+        .project-image {
+            height: 205px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #111827,
+                    #0f172a
+                );
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::before {
+            content: "</>";
+
+            position: absolute;
+
+            font-size: 90px;
+            font-weight: 900;
+
+            color: rgba(56, 189, 248, 0.055);
+
+            transform: rotate(-10deg);
+        }
+
+        .project-window {
+            width: 72%;
+            height: 65%;
+
+            background: #0b1220;
+            border: 1px solid rgba(148, 163, 184, 0.15);
+            border-radius: 10px;
+
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+
+            overflow: hidden;
+        }
+
+        .window-top {
+            height: 23px;
+
+            background: #111827;
+
+            display: flex;
+            align-items: center;
+
+            padding-left: 9px;
+            gap: 5px;
+        }
+
+        .window-top i {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #64748b;
+        }
+
+        .window-content {
+            padding: 15px;
+        }
+
+        .fake-line {
+            height: 7px;
+            border-radius: 5px;
+
+            background: rgba(56, 189, 248, 0.18);
+
+            margin-bottom: 9px;
+        }
+
+        .fake-line.short {
+            width: 50%;
+        }
+
+        .fake-line.medium {
+            width: 70%;
+        }
+
+        .project-body {
+            padding: 24px;
+        }
+
+        .project-tag {
+            color: var(--primary);
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project h3 {
+            font-size: 20px;
+            margin: 7px 0 9px;
+        }
+
+        .project p {
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 16px;
+        }
+
+        .tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-bottom: 19px;
+        }
+
+        .tech span {
+            padding: 5px 9px;
+
+            border-radius: 6px;
+
+            background: rgba(148, 163, 184, 0.07);
+            color: #cbd5e1;
+
+            font-size: 11px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 17px;
+        }
+
+        .project-links a {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .project-links a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================
+           EDUCATION
+        ========================== */
+
+        .education-card {
+            position: relative;
+
+            padding: 30px;
+            border-radius: var(--radius);
+
+            background: var(--card);
+            border: 1px solid var(--border);
+        }
+
+        .education-card::before {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            top: 25px;
+            bottom: 25px;
+
+            width: 3px;
+
+            background: var(--primary);
+            border-radius: 5px;
+        }
+
+        .education-year {
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .education-card h3 {
+            margin: 5px 0;
+            font-size: 21px;
+        }
+
+        .education-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           PROCESS
+        ========================== */
+
+        .process {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .process-item {
+            padding: 25px;
+
+            border: 1px solid var(--border);
+            border-radius: 15px;
+
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .process-item span {
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: 900;
+        }
+
+        .process-item h3 {
+            margin: 8px 0;
+        }
+
+        .process-item p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           TESTIMONIAL
+        ========================== */
+
+        .testimonial {
+            max-width: 850px;
+            margin: auto;
+
+            padding: 40px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(56, 189, 248, 0.06),
+                    rgba(255, 255, 255, 0.02)
+                );
+
+            border: 1px solid var(--border);
+            border-radius: 22px;
+        }
+
+        .quote {
+            font-size: 42px;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .testimonial p {
+            color: #cbd5e1;
+            font-size: 17px;
+            margin: 15px 0 20px;
+        }
+
+        .testimonial small {
+            color: var(--muted);
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================== */
+
+        .contact-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+
+            padding: 38px;
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(56, 189, 248, 0.07),
+                    rgba(255, 255, 255, 0.02)
+                );
+
+            border: 1px solid var(--border);
+        }
+
+        .contact-box h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .contact-box p {
+            color: var(--muted);
+        }
+
+        .contact-links {
+            display: grid;
+            gap: 12px;
+        }
+
+        .contact-link {
+            padding: 14px 17px;
+
+            border-radius: 11px;
+
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid var(--border);
+
+            transition: 0.3s;
+        }
+
+        .contact-link:hover {
+            border-color: rgba(56, 189, 248, 0.3);
+            transform: translateX(4px);
+        }
+
+        .contact-link small {
+            display: block;
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .contact-link strong {
+            font-size: 14px;
+            color: #e2e8f0;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            padding: 35px 0;
+
+            border-top: 1px solid var(--border);
+
+            text-align: center;
+        }
+
+        footer h3 {
+            font-size: 22px;
+            margin-bottom: 6px;
+        }
+
+        footer h3 span {
+            color: var(--primary);
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           SCROLL REVEAL
+        ========================== */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition:
+                opacity 0.7s ease,
+                transform 0.7s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =========================
+           ANIMATIONS
+        ========================== */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.94);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            #home {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 50px;
+            }
+
+            .home-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .profile-container {
+                order: -1;
+            }
+
+            .profile {
+                width: 220px;
+                height: 220px;
+            }
+
+            .profile-container::before,
+            .profile-container::after {
+                width: 250px;
+                height: 250px;
+            }
+
+            .skills {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .services,
+            .projects {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .process {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-grid,
+            .contact-box {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            nav {
+                height: 68px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+
+                top: 68px;
+                left: 0;
+
+                width: 100%;
+
+                padding: 20px;
+
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 17px;
+
+                background: rgba(8, 13, 24, 0.98);
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            #home {
+                padding-top: 115px;
+            }
+
+            .home-text h1 {
+                letter-spacing: -2px;
+            }
+
+            section {
+                padding: 75px 0;
+            }
+
+            .skills,
+            .services,
+            .projects,
+            .process {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-box,
+            .about-box,
+            .education-card,
+            .testimonial {
+                padding: 24px;
+            }
+
+            .testimonial p {
+                font-size: 15px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+
+        <nav>
+
+            <a href="#home" class="logo">
+                Mahmoud<span>.</span>
+            </a>
+
+            <button class="menu-btn" id="menuBtn">
+                ☰
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <li>
+                    <a href="#services">Services</a>
+                </li>
+
+                <li>
+                    <a href="#projects">Projects</a>
+                </li>
+
+                <li>
+                    <a href="#skills">Skills</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================
+         HOME
+    ========================== -->
+
+    <section id="home">
+
+        <div class="home-text">
+
+            <div class="badge">
+                <span class="badge-dot"></span>
+                Available for freelance projects
+            </div>
+
+            <h4>
+                Hello, I'm
+            </h4>
+
+            <h1>
+                Mahmoud
+                <span>Ahmed</span>
+            </h1>
+
+            <h2>
+                Junior <span>.NET</span> Full-Stack Developer
+            </h2>
+
+            <p>
+                I turn complex business processes into
+                <strong>fast, reliable web applications</strong>
+                using C#, .NET, SQL, JavaScript and React.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#projects" class="btn">
+                    View My Projects →
+                </a>
+
+                <a href="#contact" class="btn btn-outline">
+                    Let's Work Together
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROFILE -->
+
+        <div class="profile-container">
+
+            <img
+                src="/photo_2026-09-03_21-33-53.jpg"
+                alt="Mahmoud Ahmed - .NET Developer"
+                class="profile"
+            >
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section id="about" class="reveal">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                About Me
+            </div>
+
+            <h2 class="section-title">
+                Building solutions for
+                <span>real problems.</span>
+            </h2>
+
+            <p class="section-description">
+                A short introduction about who I am,
+                what I do, and what I am working toward.
+            </p>
+
+        </div>
+
+
+        <div class="about-grid">
+
+            <div class="about-box">
+
+                <p>
+
+                    I'm <strong>Mahmoud Ahmed</strong>,
+                    a Computer Science student at the
+                    Faculty of Computers and Information,
+                    Menoufia University.
+
+                    <br><br>
+
+                    I started my programming journey with
+                    Problem Solving and gradually discovered
+                    my passion for Web Development.
+
+                    <br><br>
+
+                    Today, I focus on becoming a strong
+                    <strong>.NET Full-Stack Developer</strong>
+                    by building practical projects and
+                    continuously improving my backend,
+                    database, API and frontend skills.
+
+                </p>
+
+            </div>
+
+
+            <div class="quick-info">
+
+                <div class="info-item">
+
+                    <small>Focus</small>
+
+                    <strong>
+                        Full-Stack Web Development
+                    </strong>
+
+                </div>
+
+                <div class="info-item">
+
+                    <small>Backend</small>
+
+                    <strong>
+                        C# · .NET · ASP.NET Core
+                    </strong>
+
+                </div>
+
+                <div class="info-item">
+
+                    <small>Database</small>
+
+                    <strong>
+                        SQL Server · Entity Framework
+                    </strong>
+
+                </div>
+
+                <div class="info-item">
+
+                    <small>Frontend</small>
+
+                    <strong>
+                        HTML · CSS · JavaScript · React
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SERVICES
+    ========================== -->
+
+    <section id="services" class="reveal">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                What I Do
+            </div>
+
+            <h2 class="section-title">
+                Services I can
+                <span>help with.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="services">
+
+
+            <div class="service">
+
+                <div class="service-number">
+                    01 / WEB DEVELOPMENT
+                </div>
+
+                <h3>
+                    Web Applications
+                </h3>
+
+                <p>
+                    Building responsive and practical
+                    web applications designed around
+                    real business requirements.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-number">
+                    02 / BACKEND
+                </div>
+
+                <h3>
+                    .NET Backend
+                </h3>
+
+                <p>
+                    Developing reliable backend systems,
+                    business logic and REST APIs using
+                    C# and ASP.NET Core.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-number">
+                    03 / DATABASE
+                </div>
+
+                <h3>
+                    SQL & Databases
+                </h3>
+
+                <p>
+                    Designing structured databases,
+                    writing SQL queries and connecting
+                    applications to reliable data.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PROJECTS
+    ========================== -->
+
+    <section id="projects" class="reveal">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                Featured Work
+            </div>
+
+            <h2 class="section-title">
+                Projects that
+                <span>solve problems.</span>
+            </h2>
+
+            <p class="section-description">
+                A selection of practical projects built
+                to demonstrate my development and
+                problem-solving skills.
+            </p>
+
+        </div>
+
+
+        <div class="projects">
+
+
+            <!-- PROJECT 01 -->
+
+            <article class="project">
+
+                <div class="project-image">
+
+                    <div class="project-window">
+
+                        <div class="window-top">
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                        </div>
+
+                        <div class="window-content">
+
+                            <div class="fake-line"></div>
+                            <div class="fake-line medium"></div>
+                            <div class="fake-line short"></div>
+                            <div class="fake-line"></div>
+                            <div class="fake-line medium"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-body">
+
+                    <div class="project-tag">
+                        Full-Stack System
+                    </div>
+
+                    <h3>
+                        Client Management System
+                    </h3>
+
+                    <p>
+                        A system for managing clients,
+                        projects, tasks and business data
+                        from one organized dashboard.
+                    </p>
+
+                    <div class="tech">
+
+                        <span>C#</span>
+                        <span>ASP.NET Core</span>
+                        <span>SQL Server</span>
+                        <span>EF Core</span>
+
+                    </div>
+
+                    <div class="project-links">
+
+                        <a href="#" target="_blank">
+                            GitHub ↗
+                        </a>
+
+                        <a href="#" target="_blank">
+                            Live Demo ↗
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROJECT 02 -->
+
+            <article class="project">
+
+                <div class="project-image">
+
+                    <div class="project-window">
+
+                        <div class="window-top">
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                        </div>
+
+                        <div class="window-content">
+
+                            <div class="fake-line medium"></div>
+                            <div class="fake-line"></div>
+                            <div class="fake-line short"></div>
+                            <div class="fake-line medium"></div>
+                            <div class="fake-line"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-body">
+
+                    <div class="project-tag">
+                        Business Application
+                    </div>
+
+                    <h3>
+                        Inventory & Sales System
+                    </h3>
+
+                    <p>
+                        A practical management system for
+                        products, inventory, sales and
+                        business reporting.
+                    </p>
+
+                    <div class="tech">
+
+                        <span>.NET</span>
+                        <span>C#</span>
+                        <span>SQL Server</span>
+                        <span>JavaScript</span>
+
+                    </div>
+
+                    <div class="project-links">
+
+                        <a href="#" target="_blank">
+                            GitHub ↗
+                        </a>
+
+                        <a href="#" target="_blank">
+                            Live Demo ↗
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROJECT 03 -->
+
+            <article class="project">
+
+                <div class="project-image">
+
+                    <div class="project-window">
+
+                        <div class="window-top">
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                        </div>
+
+                        <div class="window-content">
+
+                            <div class="fake-line short"></div>
+                            <div class="fake-line"></div>
+                            <div class="fake-line medium"></div>
+                            <div class="fake-line short"></div>
+                            <div class="fake-line"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-body">
+
+                    <div class="project-tag">
+                        Booking Platform
+                    </div>
+
+                    <h3>
+                        Appointment Booking System
+                    </h3>
+
+                    <p>
+                        A booking platform that allows
+                        users to choose services, available
+                        times and manage appointments.
+                    </p>
+
+                    <div class="tech">
+
+                        <span>ASP.NET Core</span>
+                        <span>SQL</span>
+                        <span>REST API</span>
+                        <span>React</span>
+
+                    </div>
+
+                    <div class="project-links">
+
+                        <a href="#" target="_blank">
+                            GitHub ↗
+                        </a>
+
+                        <a href="#" target="_blank">
+                            Live Demo ↗
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SKILLS
+    ========================== -->
+
+    <section id="skills" class="reveal">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                My Toolkit
+            </div>
+
+            <h2 class="section-title">
+                Skills &
+                <span>Tools.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="skills">
+
+
+            <div class="skill">
+
+                <div class="skill-icon">
+                    C#
+                </div>
+
+                <h3>C#</h3>
+
+                <p>
+                    Programming & OOP
+                </p>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-icon">
+                    .NET
+                </div>
+
+                <h3>.NET</h3>
+
+                <p>
+                    Backend Development
+                </p>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-icon">
+                    SQL
+                </div>
+
+                <h3>SQL Server</h3>
+
+                <p>
+                    Database Development
+                </p>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-icon">
+                    EF
+                </div>
+
+                <h3>Entity Framework</h3>
+
+                <p>
+                    Data Access
+                </p>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-icon">
+                    API
+                </div>
+
+                <h3>REST APIs</h3>
+
+                <p>
+                    Backend Integration
+                </p>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-icon">
+                    JS
+                </div>
+
+                <h3>JavaScript</h3>
+
+                <p>
+                    Web Programming
+                </p>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-icon">
+                    R
+                </div>
+
+                <h3>React</h3>
+
+                <p>
+                    Frontend Development
+                </p>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-icon">
+                    Git
+                </div>
+
+                <h3>Git & GitHub</h3>
+
+                <p>
+                    Version Control
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         EDUCATION
+    ========================== -->
+
+    <section id="education" class="reveal">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                Education
+            </div>
+
+            <h2 class="section-title">
+                My academic
+                <span>foundation.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="education-card">
+
+            <div class="education-year">
+                CURRENT
+            </div>
+
+            <h3>
+                Faculty of Computers and Information
+            </h3>
+
+            <p>
+                Menoufia University
+            </p>
+
+            <br>
+
+            <p>
+                Focused on programming fundamentals,
+                problem solving, data structures,
+                algorithms, databases, software
+                engineering and web development.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PROCESS
+    ========================== -->
+
+    <section id="process" class="reveal">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                How I Work
+            </div>
+
+            <h2 class="section-title">
+                From idea to
+                <span>working solution.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="process">
+
+
+            <div class="process-item">
+
+                <span>01</span>
+
+                <h3>
+                    Understand
+                </h3>
+
+                <p>
+                    Understand the goal, requirements,
+                    users and expected outcome.
+                </p>
+
+            </div>
+
+
+            <div class="process-item">
+
+                <span>02</span>
+
+                <h3>
+                    Plan
+                </h3>
+
+                <p>
+                    Break the project into features,
+                    data structures and clear tasks.
+                </p>
+
+            </div>
+
+
+            <div class="process-item">
+
+                <span>03</span>
+
+                <h3>
+                    Build
+                </h3>
+
+                <p>
+                    Develop the application with
+                    organized code, APIs and database
+                    integration.
+                </p>
+
+            </div>
+
+
+            <div class="process-item">
+
+                <span>04</span>
+
+                <h3>
+                    Improve
+                </h3>
+
+                <p>
+                    Test, fix issues and improve the
+                    final user experience.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         TESTIMONIAL
+    ========================== -->
+
+    <section id="testimonial" class="reveal">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                Feedback
+            </div>
+
+            <h2 class="section-title">
+                What people say
+                <span>about my work.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="testimonial">
+
+            <div class="quote">
+                “
+            </div>
+
+            <p>
+                Your testimonial will go here once you
+                have completed client or freelance projects.
+                Keep it specific and focused on the result
+                you delivered.
+            </p>
+
+            <small>
+                — Client / Project Partner
+            </small>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section id="contact" class="reveal">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                Contact
+            </div>
+
+            <h2 class="section-title">
+                Have a project in
+                <span>mind?</span>
+            </h2>
+
+            <p class="section-description">
+                Let's discuss the problem, the goal,
+                and how I can help turn it into a
+                reliable digital solution.
+            </p>
+
+        </div>
+
+
+        <div class="contact-box">
+
+            <div>
+
+                <h3>
+                    Let's build something useful.
+                </h3>
+
+                <p>
+                    I'm open to freelance opportunities,
+                    collaborations and interesting
+                    development projects.
+                </p>
+
+            </div>
+
+
+            <div class="contact-links">
+
+
+                <a
+                    href="mailto:your-email@example.com"
+                    class="contact-link"
+                >
+
+                    <small>
+                        Email
+                    </small>
+
+                    <strong>
+                        your-email@example.com
+                    </strong>
+
+                </a>
+
+
+                <a
+                    href="#"
+                    target="_blank"
+                    class="contact-link"
+                >
+
+                    <small>
+                        GitHub
+                    </small>
+
+                    <strong>
+                        github.com/yourusername
+                    </strong>
+
+                </a>
+
+
+                <a
+                    href="#"
+                    target="_blank"
+                    class="contact-link"
+                >
+
+                    <small>
+                        LinkedIn
+                    </small>
+
+                    <strong>
+                        linkedin.com/in/yourusername
+                    </strong>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <h3>
+            Mahmoud<span>.</span>
+        </h3>
+
+        <p>
+            Thanks for taking the time to explore my work.
+        </p>
+
+        <p>
+            © <span id="year"></span>
+            Mahmoud Ahmed. All rights reserved.
+        </p>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /* =========================
+           MOBILE MENU
+        ========================== */
+
+        const menuBtn =
+            document.getElementById("menuBtn");
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+
+        menuBtn.addEventListener("click", () => {
+
+            navLinks.classList.toggle("active");
+
+        });
+
+
+        /* Close menu after clicking */
+
+        document.querySelectorAll(".nav-links a")
+            .forEach(link => {
+
+                link.addEventListener("click", () => {
+
+                    navLinks.classList.remove("active");
+
+                });
+
+            });
+
+
+
+        /* =========================
+           SCROLL REVEAL
+        ========================== */
+
+        const observer =
+            new IntersectionObserver(
+                (entries) => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("show");
+
+                            observer.unobserve(entry.target);
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        document
+            .querySelectorAll(".reveal")
+            .forEach(element => {
+
+                observer.observe(element);
+
+            });
+
+
+
+        /* =========================
+           CURRENT YEAR
+        ========================== */
+
+        document.getElementById("year")
+            .textContent =
+            new Date().getFullYear();
+
+
+
+        /* =========================
+           ACTIVE NAV LINK
+        ========================== */
+
+        const sections =
+            document.querySelectorAll("section");
+
+        const links =
+            document.querySelectorAll(".nav-links a");
+
+
+        window.addEventListener("scroll", () => {
+
+            let current = "";
+
+            sections.forEach(section => {
+
+                const sectionTop =
+                    section.offsetTop - 120;
+
+                if (
+                    window.scrollY >= sectionTop
+                ) {
+
+                    current = section.getAttribute("id");
+
+                }
+
+            });
+
+
+            links.forEach(link => {
+
+                link.style.color = "";
+
+                if (
+                    link.getAttribute("href") ===
+                    "#" + current
+                ) {
+
+                    link.style.color =
+                        "var(--primary)";
+
+                }
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
